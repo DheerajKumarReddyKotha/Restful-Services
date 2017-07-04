@@ -19,8 +19,11 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 import javax.ws.rs.core.UriInfo;
 
+import com.asura.webservices.rest.exceptions.DataNotFoundException;
 import com.asura.webservices.rest.models.Employee;
 
 /**
@@ -33,6 +36,13 @@ public class EmployeeResource {
 	private List<Employee> employeelist = new ArrayList<>(Arrays.asList(new Employee("Dheeraj","Kotha"),
 			new Employee("Neelima","Kotha")));
 
+	@GET
+	@Path("status")
+	@Produces(MediaType.TEXT_PLAIN)
+	public Response getStatus(){
+
+		return Response.status(Status.OK).build();
+	}
 
 	@GET
 	@Path("uriinfo")
@@ -51,6 +61,8 @@ public class EmployeeResource {
 		for(Employee e: employeelist){
 			if(e.getFirstName().equals(firstName)){
 				return e;
+			}else{
+				throw new DataNotFoundException("Employee with firstname: "+firstName+" not found");
 			}
 		}
 		}
@@ -70,15 +82,15 @@ public class EmployeeResource {
 	@Consumes(MediaType.APPLICATION_XML)
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Employee> putResource(@PathParam("firstName") String firstName, Employee employee){
-		
+		while(true){
 			for(Employee e: employeelist){
 				if(e.getFirstName().equals(firstName)){
 					e.setFirstName(employee.getFirstName());
 					e.setLastName(employee.getLastName());
+					return employeelist;
 				}
 			}
-
-		return employeelist;
+		}
 	}
 	
 	@DELETE

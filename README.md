@@ -64,4 +64,5 @@ o) @BeanParam - It is used to access request parameters by putting all params in
 A web container (also known as a servlet container; and compare "webtainer") is the component of a web server that interacts with Java servlets. 
 A web container is responsible for managing the lifecycle of servlets, mapping a URL to a particular servlet and ensuring that the URL requester has the correct access-rights.
 
-8. 
+8. How to handle exceptions in web applications?
+This is explained in all classes using Exceptions and Exception Mapper.
