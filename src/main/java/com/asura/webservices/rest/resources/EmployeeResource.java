@@ -15,6 +15,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
 import com.asura.webservices.rest.models.Employee;
@@ -32,9 +33,14 @@ public class EmployeeResource {
 
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
-	public List<Employee> getResource(){
-		
-		return employeelist;
+	public Employee getResource(@QueryParam("firstname") String firstName){
+		while(true){
+		for(Employee e: employeelist){
+			if(e.getFirstName().equals(firstName)){
+				return e;
+			}
+		}
+		}
 	}
 	
 	@POST
