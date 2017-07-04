@@ -43,5 +43,18 @@ Base URL : http://your_domain:port/display-name/url-pattern/path_from_rest_class
 f) JAX-RS supports the creation of XML and JSON via the Java Architecture for XML Binding (JAXB).
 
 6. What are JAX-RS Annotations?
-a) @Path
+a) @Path - Sets the path to the base URL + your path. The base url is based on your application name in your servlet and URL pattern from your web.xml file.
+b) @POST - Indicates that following method will answer to HTTP POST Request.
+c) @GET - Indicates that following method will answer to HTTP GET Request.
+d) @PUT - Indicates that following method will answer to HTTP PUT Request.
+e) @DELETE - Indicates that following method will answer to HTTP DELETE Request.
+f) @PRODUCES - It defines which MIME type is delivered by a method annotated with @GET
+g) @CONSUMES - It defines which MIME type is consumed by this method.
+h) @PathParam - Used to inject values from the URL into a method parameter. This way you inject, for example, the ID of a resource into the method to get the correct object.
 
+
+7. What is a Web-Container?
+A web container (also known as a servlet container; and compare "webtainer") is the component of a web server that interacts with Java servlets. 
+A web container is responsible for managing the lifecycle of servlets, mapping a URL to a particular servlet and ensuring that the URL requester has the correct access-rights.
+
+8. 
