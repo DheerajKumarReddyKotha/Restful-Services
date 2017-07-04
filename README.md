@@ -51,6 +51,13 @@ e) @DELETE - Indicates that following method will answer to HTTP DELETE Request.
 f) @PRODUCES - It defines which MIME type is delivered by a method annotated with @GET
 g) @CONSUMES - It defines which MIME type is consumed by this method.
 h) @PathParam - Used to inject values from the URL into a method parameter. This way you inject, for example, the ID of a resource into the method to get the correct object.
+i) @QueryParam - It is used to inject the param which queries the resource based on the param sent.
+j) @MatrixParam - It is similar to Query param but differ in replacing '?' with ':'.
+k) @HeaderParam - It is used to inject values from the headers, it is used to send meta data like authentication and all.
+l) @CookieParam - It is used to inject cookie name.
+m) @FormParam - It is used to submit the params of a HTML Form.
+n) @Context - It is used to inject predefined class and use their methods.
+o) @BeanParam - It is used to access request parameters by putting all params in one class.
 
 
 7. What is a Web-Container?
