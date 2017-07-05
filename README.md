@@ -66,3 +66,9 @@ A web container is responsible for managing the lifecycle of servlets, mapping a
 
 8. How to handle exceptions in web applications?
 This is explained in all classes using Exceptions and Exception Mapper.
+
+9. What is content negotiation?
+It is the interaction between client and server to send response in the form of XML or JSON.
+To do that:
+Provide headers as: Accept|text/XML and inside java use 
+@Consumes(value = {MediaType.APPLICATION_JSON,MediaType.TEXT_XML})
